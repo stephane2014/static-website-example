@@ -3,7 +3,7 @@ RUN apt-get update
 RUN apt-get install nginx -y
 COPY index.html /var/www/html/
 EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
+CMD ["nginx","-g","daemon off;","gunicorn --bind 0.0.0.0:$PORT wsgi"]
 
 
 # Run the app.  CMD is required to run on Heroku
