@@ -23,7 +23,7 @@ pipeline {
             steps {
                script {
                  sh '''
-                    docker run --name $IMAGE_NAME -d -p 8000:80 -e PORT=8000 stef/$IMAGE_NAME:$IMAGE_TAG -g 'daemon off;'
+                    docker run --name $IMAGE_NAME -d -p 8000:80 -e PORT=8000 stef/$IMAGE_NAME:$IMAGE_TAG
                     sleep 5
                  '''
                }
