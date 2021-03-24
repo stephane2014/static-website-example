@@ -29,16 +29,6 @@ pipeline {
                }
             }
        }
-               stage('Test image') {
-           agent any
-           steps {
-              script {
-                sh '''
-                    curl http://localhost:8000 | grep -q "Contact"
-                '''
-              }
-           }
-      }
       stage('Clean Container') {
           agent any
           steps {
