@@ -34,7 +34,7 @@ pipeline {
            steps {
               script {
                 sh '''
-                    curl http://localhost | grep -q "Contact"
+                    curl http://localhost:8000 | grep -q "Contact"
                 '''
               }
            }
