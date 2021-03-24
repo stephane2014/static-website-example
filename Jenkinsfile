@@ -29,6 +29,27 @@ pipeline {
                }
             }
        }
+               stage('Test image') {
+           agent any
+           steps {
+              script {
+                sh '''
+                    curl http://localhost | grep -q "Contact"
+                '''
+              }
+           }
+      }
+      stage('Clean Container') {
+          agent any
+          steps {
+             script {
+               sh '''
+                 docker stop $IMAGE_NAME
+                 docker rm $IMAGE_NAME
+               '''
+             }
+          }
+     }
   }
    post {
        always {
