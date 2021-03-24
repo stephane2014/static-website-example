@@ -2,7 +2,7 @@ FROM ubuntu
 RUN apt-get update
 RUN apt-get install nginx -y
 COPY index.html /var/www/html/
-EXPOSE $PORT
+#EXPOSE $PORT
 CMD ["nginx",,"-p $PORT","-g daemon off;"]
 
 # Run the app.  CMD is required to run on Heroku
