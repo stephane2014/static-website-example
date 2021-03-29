@@ -29,16 +29,6 @@ pipeline {
                }
             }
        }
-       stage('Test image') {
-           agent any
-           steps {
-              script {
-                sh '''
-                    curl http://172.17.0.1 | grep -q "Contact"
-                '''
-              }
-           }
-      }
       stage('Clean Container') {
           agent any
           steps {
