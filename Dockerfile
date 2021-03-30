@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN apt-get update
 RUN apt-get install nginx -y
-COPY index.html /var/www/html/
+ADD . /var/www/html/
 WORKDIR /var/www/html
 CMD nginx -g 'daemon off;' && --bind 0.0.0.0:$PORT
 
