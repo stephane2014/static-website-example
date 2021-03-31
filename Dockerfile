@@ -3,6 +3,11 @@ RUN apt-get update
 RUN apt-get install nginx -y
 ADD . /var/www/html/
 WORKDIR /var/www/html
+
+# Run the image as a non-root user
+RUN useradd -m myuser
+USER myuser
+
 CMD nginx -g 'daemon off;' && --bind 0.0.0.0:$PORT
 
 
